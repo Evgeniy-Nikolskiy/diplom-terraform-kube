@@ -19,13 +19,6 @@ resource "yandex_vpc_network" "vpc_diplom" {
 
       # отправить в сторадж файл tfstate
       
-resource "yandex_storage_object" "tfstate" {
-  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-  bucket     = "diplom-netology-bucket"
-  key        = "terraform.tfstate"
-  source     = "~/repo/diplom-terraform-kube/terraform.tfstate"
-}
               # Создать в vpc subnet с названием master_sub, сетью 10.129.0.0/24.
 
 resource "yandex_vpc_subnet" "master_sub" {
